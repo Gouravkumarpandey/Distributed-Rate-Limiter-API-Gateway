@@ -1,0 +1,25 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+  gateway:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      PORT: 3000
+      REDIS_URL: redis://redis:6379
+      USER_SERVICE_URL: http://user-service:3001
+      PAYMENT_SERVICE_URL: http://payment-service:3002
+    ports: ["3000:3000"]
+    depends_on: [redis, user-service, payment-service]
+  user-service:
+    build:
+      context: .
+      dockerfile: test-services/user-service/Dockerfile
+    ports: ["3001:3001"]
+  payment-service:
+    build:
+      context: .
+      dockerfile: test-services/payment-service/Dockerfile
+    ports: ["3002:3002"]

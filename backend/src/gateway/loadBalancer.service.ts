@@ -1,0 +1,1 @@
+export function selectTarget(targets: string[], cursor = 0) { if (!targets.length) throw new Error('No upstream targets registered'); return { target: targets[cursor % targets.length], nextCursor: cursor + 1 }; }

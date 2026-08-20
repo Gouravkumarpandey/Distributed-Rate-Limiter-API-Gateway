@@ -1,0 +1,1 @@
+export const auth = { getToken: () => typeof window === 'undefined' ? null : window.localStorage.getItem('gateway-token'), setToken: (token: string) => window.localStorage.setItem('gateway-token', token), clear: () => window.localStorage.removeItem('gateway-token') };

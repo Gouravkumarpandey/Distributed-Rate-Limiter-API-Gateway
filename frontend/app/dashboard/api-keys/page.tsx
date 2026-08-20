@@ -1,0 +1,1 @@
+export default function ApiKeys() { return <div><p className="kicker">ACCESS / CREDENTIALS</p><h1>API keys</h1><p className="muted">Manage credentials issued to your gateway clients.</p><div className="empty-state">No API keys have been issued yet.</div></div>; }

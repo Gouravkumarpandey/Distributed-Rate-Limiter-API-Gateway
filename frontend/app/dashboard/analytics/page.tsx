@@ -1,0 +1,1 @@
+import { RequestChart } from '../../../components/dashboard/RequestChart'; export default function Analytics() { return <div><p className="kicker">OBSERVABILITY / VOLUME</p><h1>Analytics</h1><p className="muted">Request volume across the edge.</p><RequestChart /></div>; }

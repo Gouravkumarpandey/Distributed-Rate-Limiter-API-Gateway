@@ -1,0 +1,4 @@
+import { Router } from 'express';
+
+export const healthRoutes = Router();
+healthRoutes.get('/', (_request, response) => response.json({ status: 'ok', service: 'gateway', timestamp: new Date().toISOString() }));

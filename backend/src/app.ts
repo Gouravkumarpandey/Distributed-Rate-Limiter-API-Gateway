@@ -1,0 +1,22 @@
+import express from 'express';
+import { gatewayRoutes } from './routes/gateway.routes.js';
+import { healthRoutes } from './routes/health.routes.js';
+import { requestLogger } from './middleware/requestLogger.js';
+import { errorHandler } from './middleware/errorHandler.js';
+import { authRoutes } from './routes/auth.routes.js';
+import { apiKeyRoutes } from './routes/apiKey.routes.js';
+import { serviceRoutes } from './routes/service.routes.js';
+import { rateLimitRoutes } from './routes/rateLimit.routes.js';
+import { analyticsRoutes } from './routes/analytics.routes.js';
+
+export const app = express();
+app.use(express.json());
+app.use(requestLogger);
+app.use('/health', healthRoutes);
+app.use('/management/auth', authRoutes);
+app.use('/management/api-keys', apiKeyRoutes);
+app.use('/management/services', serviceRoutes);
+app.use('/management/rate-limits', rateLimitRoutes);
+app.use('/management/analytics', analyticsRoutes);
+app.use('/api', gatewayRoutes);
+app.use(errorHandler);

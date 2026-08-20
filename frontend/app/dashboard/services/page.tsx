@@ -1,0 +1,1 @@
+const services = ['Gateway', 'User service', 'Payment service']; export default function Services() { return <div><p className="kicker">UPSTREAMS / REGISTRY</p><h1>Services</h1><div className="table">{services.map((service) => <div className="request-row" key={service}><b>{service}</b><span className="healthy">Operational</span></div>)}</div></div>; }

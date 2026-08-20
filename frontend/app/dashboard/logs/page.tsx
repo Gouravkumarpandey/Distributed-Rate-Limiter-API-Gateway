@@ -1,0 +1,1 @@
+import { RecentRequests } from '../../../components/dashboard/RecentRequests'; export default function Logs() { return <div><p className="kicker">OBSERVABILITY / EVENTS</p><h1>Logs</h1><RecentRequests /></div>; }

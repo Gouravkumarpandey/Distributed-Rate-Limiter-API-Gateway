@@ -1,0 +1,1 @@
+export default function RateLimits() { return <div><p className="kicker">POLICY / THROTTLING</p><h1>Rate limits</h1><div className="stats-grid"><article><span>Default window</span><strong>60 sec</strong></article><article><span>Requests allowed</span><strong>100</strong></article></div></div>; }

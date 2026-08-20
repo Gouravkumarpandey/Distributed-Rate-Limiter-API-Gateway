@@ -1,0 +1,1 @@
+export function RequestChart() { return <div className="request-chart" aria-label="Request volume chart">{Array.from({ length: 32 }, (_, index) => <i key={index} style={{ height: `${20 + (index * 19) % 75}%` }} />)}</div>; }

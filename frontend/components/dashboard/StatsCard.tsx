@@ -1,0 +1,1 @@
+export function StatsCard({ label, value, trend }: { label: string; value: string; trend?: string }) { return <article className="stat-card"><span>{label}</span><strong>{value}</strong>{trend && <em>{trend}</em>}</article>; }
