@@ -14,3 +14,29 @@ model ApiKey {
   createdAt DateTime @default(now())
   active    Boolean  @default(true)
 }
+
+model Service {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  targetUrl String
+  active    Boolean  @default(true)
+}
+
+model RateLimitConfig {
+  id        String   @id @default(cuid())
+  serviceId String?  // Optional, if null applies to all
+  apiKeyId  String?
+  algorithm String   @default("fixedWindow") // fixedWindow, slidingWindow, tokenBucket
+  limit     Int      @default(100)
+  windowMs  Int      @default(60000)
+}
+
+model AnalyticsLog {
+  id        String   @id @default(cuid())
+  service   String
+  path      String
+  method    String
+  status    Int
+  latencyMs Int
+  timestamp DateTime @default(now())
+}
